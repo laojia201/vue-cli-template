@@ -4,31 +4,28 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-    state:{
-        shopId:"",
-        ipStateData:{},
-        initIpStates:[],
-        staffData:{},
-        searchStaffData:{},
+    state: {
+        rightNavFlag: false,
+        tabFlag: 1,
+        talkTitle: "订单",
     },
-    mutations:{
-        setShopId(state,payload){
-            state.shopId = payload
+    mutations: {
+        setrightNavFlag(state, payload) {
+            
+            if (state.tabFlag !== payload.tabFlag) {
+                state.rightNavFlag = true;
+                state.tabFlag = payload.tabFlag;
+                state.talkTitle = payload.talkTitle;
+                state.tabIsShow = !state.tabIsShow;
+            }else{
+                state.rightNavFlag = !state.rightNavFlag;
+            }
         },
-        setIpStateData(state,payload){
-            state.ipStateData = payload
-        },
-        setInitIpStates(state,payload){
-            state.initIpStates = payload
-        },
-        setStaffData(state,payload){
-            state.staffData = payload;
-        },
-        searchStaffData(state,payload){
-            state.searchStaffData = payload;
+        settalkTitle(state, payload) {
+            state.talkTitle = payload.talkTitle;
         },
     },
-    active:{},
+    active: {},
 });
 
 export default store;

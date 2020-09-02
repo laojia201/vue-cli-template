@@ -17,67 +17,99 @@ body,
   margin: 0;
   padding: 0;
 }
-h1,h2,h3,h4,h5,h6{
-    padding: 0;
-    margin: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
 }
-img{
+img {
   display: block;
 }
-ul,li{
+ul,
+li {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 .el-menu-vertical-demo li div {
-    top:-5px !important;
+  top: -5px !important;
 }
-.list-top .el-autocomplete{
+.list-top .el-autocomplete {
   width: 262px;
 }
-.list-top .el-autocomplete input{
+.list-top .el-autocomplete input {
   border: none;
   background: #e5e5e5;
   border-radius: 6px;
 }
-.list-content .el-tree-node__expand-icon{
-    position: relative;
-    left: 252px;
+
+.tab-tabs-content-top .el-autocomplete {
+  width: 310px;
 }
-.list-content .el-tree .el-tree-node__content{
+.tab-tabs-content-top .el-autocomplete input {
+  border: none;
+  background: #e5e5e5;
+  border-radius: 6px;
+}
+.list-content .el-tree-node__expand-icon {
+  position: relative;
+  left: 252px;
+}
+.list-content .el-tree .el-tree-node__content {
   padding: 17px 0;
 }
-.list-content .el-tree-node:hover{
+.list-content .el-tree-node:hover {
   background: none;
 }
-.list-content .el-tree-node__content:hover{
+.list-content .el-tree-node__content:hover {
   background: #dddddd;
 }
-.message-wang-editor .w-e-toolbar{
-    position: relative;
-    top: 116px;
-    background: none !important;
-    border-top: none !important;
+.message-wang-editor .w-e-toolbar {
+  position: relative;
+  top: 116px;
+  background: none !important;
+  border-top: none !important;
 }
-/* .message-wang-editor .w-e-text{
-    position: relative;
-    bottom: 34px;
-} */
-.message-wang-editor .w-e-text-container{
-    height: 116px !important;
-    position: relative;
-    bottom: 33px;
-    border-top: 1px solid #ccc !important;
-    border-bottom: none !important;
+.message-wang-editor .w-e-text-container {
+  height: 116px !important;
+  position: relative;
+  bottom: 33px;
+  border-top: 1px solid #ccc !important;
+  border-bottom: none !important;
 }
-.message-wang-editor-btn{
+.message-wang-editor-btn {
   position: relative;
   left: calc(100% - 85px);
-  bottom:32px;
+  bottom: 42px;
   background: #3b4859;
   border: none;
   border-radius: 5px;
   width: 70px;
   height: 30px;
+}
+.buy-list-right-teo input {
+  font-size: 12px;
+  padding: 0 10px !important;
+  border: none;
+  border-radius: 5px;
+  background: #e5e5e5;
+}
+.buy-list-right-teo span {
+  right: -2px;
+}
+.message-wang-editor .ql-toolbar{
+  display: none;
+}
+.message-wang-editor .ql-container{
+  border: 1px solid #ccc !important;
+  height: 100%;
+  border-radius: 10px;
+}
+.message-wang-editor div{
+  height: 100%;
 }
 </style>

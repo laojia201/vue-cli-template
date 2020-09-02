@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import BoxShow from "../pages/BoxShow"
-import Left from "../pages/Left"
-
-// import { getToken } from '../utils/localStor';
+import Lists from "../pages/tabShows/Lists"
+import Details from "../pages/tabShows/Details"
+import History from "../pages/tabShows/History"
+import QuestTem from "../pages/tabShows/QuestTem"
+import TabLan from "../pages/tabShows/TabLan"
+import Tags from "../pages/tabShows/Tags"
 
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
@@ -18,12 +21,32 @@ const router = new VueRouter({
             path: "/",
             name: "BoxShow",
             component: BoxShow,
+            children: [{
+                path: "/",
+                name: "Lists",
+                component: Lists,
+            },{
+                path: "/details",
+                name: "Details",
+                component: Details,
+            },{
+                path: "/history",
+                name: "History",
+                component: History,
+            },{
+                path: "/questTem",
+                name: "QuestTem",
+                component: QuestTem,
+            },{
+                path: "/tabLan",
+                name: "TabLan",
+                component: TabLan,
+            },{
+                path: "/tags",
+                name: "Tags",
+                component: Tags,
+            }]
         },
-        // {
-        //     path:"/",
-        //     name:"Left",
-        //     component: Left,
-        // },
     ]
 });
 
