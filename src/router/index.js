@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import BoxShow from "../pages/BoxShow"
+// import CumsPage from "../pages/CumsPage"
+// import HistoryTab from "../pages/HistoryTab"
+// import TagsPage from "../pages/TagsPage"
+// import SetPage from "../pages/SetPage"
 import Lists from "../pages/tabShows/Lists"
 import Details from "../pages/tabShows/Details"
 import History from "../pages/tabShows/History"
@@ -21,28 +25,34 @@ const router = new VueRouter({
             path: "/",
             name: "BoxShow",
             component: BoxShow,
+            redirect:"/home"
+        },
+        {
+            path: "/home",
+            name: "BoxShow",
+            component: BoxShow,
             children: [{
                 path: "/",
                 name: "Lists",
                 component: Lists,
-            },{
-                path: "/details",
+            }, {
+                path: "/home/details",
                 name: "Details",
                 component: Details,
-            },{
-                path: "/history",
+            }, {
+                path: "/home/history",
                 name: "History",
                 component: History,
-            },{
-                path: "/questTem",
+            }, {
+                path: "/home/questTem",
                 name: "QuestTem",
                 component: QuestTem,
-            },{
-                path: "/tabLan",
+            }, {
+                path: "/home/tabLan",
                 name: "TabLan",
                 component: TabLan,
-            },{
-                path: "/tags",
+            }, {
+                path: "/home/tags",
                 name: "Tags",
                 component: Tags,
             }]

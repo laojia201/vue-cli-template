@@ -20,11 +20,30 @@
               slot="prefix"
               @click="handleIconClick"
             ></i>
+            <i
+              :class="$store.state.tabFlag == 5?'el-icon-date el-input__icon':''"
+              style="cursor:pointer"
+              slot="suffix"
+              @click="handleIconClick1"
+              ref="iconColor"
+            ></i>
             <template slot-scope="{ item }">
               <div class="name">{{ item.value }}</div>
               <span class="addr">{{ item.address }}</span>
             </template>
           </el-autocomplete>
+          <div class="block" v-show="$store.state.tabFlag == 5 &&  showDataSelect">
+            <el-date-picker
+              v-model="value2"
+              type="daterange"
+              align="right"
+              unlink-panels
+              range-separator="至"
+              start-placeholder="开始日期"
+              end-placeholder="结束日期"
+              :picker-options="pickerOptions"
+            ></el-date-picker>
+          </div>
         </div>
         <div class="tab-tabs-content-content">
           <router-view></router-view>
@@ -40,7 +59,41 @@ export default {
   data() {
     return {
       state: "",
-      restaurants: [],      
+      restaurants: [],
+      pickerOptions: {
+        shortcuts: [
+          {
+            text: "最近一周",
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+              picker.$emit("pick", [start, end]);
+            }
+          },
+          {
+            text: "最近一个月",
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+              picker.$emit("pick", [start, end]);
+            }
+          },
+          {
+            text: "最近三个月",
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+              picker.$emit("pick", [start, end]);
+            }
+          }
+        ]
+      },
+      value1: "",
+      value2: "",
+      showDataSelect: false
     };
   },
   methods: {
@@ -56,7 +109,18 @@ export default {
       console.log(item);
     },
     handleIconClick() {},
-    
+    // 搜索栏设置
+    handleIconClick1(){
+      this.showDataSelect = !this.showDataSelect;
+      if(this.showDataSelect){
+        this.$refs.iconColor.style.color = "blue"
+      }else{
+        this.$refs.iconColor.style.color = "#999"
+      }
+    },
+  },
+  created(){
+    //  this.$refs.iconColor.style.color = "#999"
   }
 };
 </script>
@@ -98,5 +162,13 @@ export default {
   padding: 0 20px;
   box-sizing: border-box;
 }
-
+.block {
+  position: absolute;
+  top: 127px;
+  width: 310px;
+}
+.block > div {
+  width: 100%;
+  box-sizing: border-box;
+}
 </style>

@@ -23,48 +23,36 @@
     </div>
 
     <div class="list-content">
-      <el-tree
-        :data="lists"
-        :props="defaultProps"
-        @node-click="handleNodeClick"
-        class="list-content-tab"
-        :render-content="renderContent"
-      ></el-tree>
+      
+      <component :is="showListTab"></component>
     </div>
   </div>
 </template>
 
 <script>
+import talklist from "./listContents/TalkList";
+import cumslist from "./listContents/CumsList";
+import historylist from "./listContents/HistoryList";
+import tagslist from "./listContents/TagsList";
+import setlist from "./listContents/SetList";
+
 export default {
   name: "List",
   data() {
     return {
       state: "",
       restaurants: [],
-      lists: [{
-          label: '123.com',
-          children: [{
-            label: '123111.com',
-          }]
-        }, {
-          label: '456.com',
-          children: [{
-            label: '456111.com',
-          },{
-            label: '456222.com',
-          }]
-        }, {
-          label: '789.com',
-          children: [{
-            label: '789111.com',
-          },{
-            label: '789222.com',
-          },{
-            label: '789333.com',
-          }]
-        }],
-      defaultProps: {}
+      
+      
+      showListTab: "talklist"
     };
+  },
+  components: {
+    talklist,
+    cumslist,
+    historylist,
+    tagslist,
+    setlist
   },
   methods: {
     // 头部搜索
@@ -79,17 +67,28 @@ export default {
       console.log(item);
     },
     handleIconClick() {},
-    // content内容列表
-    handleNodeClick(data) {
-      console.log(data);
-    },
-    renderContent(h, { node, data, store }) {
-        return (
-          <span class="custom-tree-node">
-            <span>{node.label}</span>
-          </span>);
+    
+  },
+  watch: {
+    "$store.state.navs"(val) {
+      switch (val) {
+        case 1:
+          this.showListTab = "talklist";
+          break;
+        case 2:
+          this.showListTab = "cumslist";
+          break;
+        case 3:
+          this.showListTab = "historylist";
+          break;
+        case 4:
+          this.showListTab = "tagslist";
+          break;
+        case 5:
+          this.showListTab = "setlist";
+          break;
       }
-
+    }
   }
 };
 </script>
@@ -98,7 +97,7 @@ export default {
 .list {
   height: 100%;
   box-sizing: border-box;
-  border-right: 1px solid #DEE0E3;
+  border-right: 1px solid #dee0e3;
   display: flex;
   flex-direction: column;
 }

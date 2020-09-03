@@ -16,15 +16,15 @@
             <i :class="navIconsTab == 1 ? 'el-icon-my-message':'el-icon-my-message'"></i>
             <span slot="title">消息</span>
           </el-menu-item>
-          <el-menu-item index="2" style>
+          <el-menu-item index="2">
             <i :class="navIconsTab == 2 ? 'el-icon-my-contact':'el-icon-my-contact'"></i>
             <span slot="title">客服</span>
           </el-menu-item>
-          <el-menu-item index="3" style>
+          <el-menu-item index="3">
             <i :class="navIconsTab == 3 ? 'el-icon-my-history':'el-icon-my-history'"></i>
             <span slot="title">业务记录</span>
           </el-menu-item>
-          <el-menu-item index="4" style>
+          <el-menu-item index="4">
             <i :class="navIconsTab == 4 ? 'el-icon-my-tag':'el-icon-my-tag'"></i>
             <span slot="title">标签</span>
           </el-menu-item>
@@ -54,7 +54,25 @@ export default {
     console.log();
   },
   methods: {
-    handleOpen() {}
+    handleOpen(index) {
+      switch (index) {
+        case "1":
+          this.$store.commit("setNavs",1);
+          break;
+        case "2":
+          this.$store.commit("setNavs",2);
+          break;
+        case "3":
+          this.$store.commit("setNavs",3);
+          break;
+        case "4":
+          this.$store.commit("setNavs",4);
+          break;
+        case "5":
+          this.$store.commit("setNavs",5);
+          break;
+      }
+    }
   }
 };
 </script>
@@ -155,5 +173,4 @@ export default {
 .is-active {
   background: #09c198 !important;
 }
-
 </style>

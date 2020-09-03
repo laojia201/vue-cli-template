@@ -101,15 +101,39 @@ li {
 .buy-list-right-teo span {
   right: -2px;
 }
-.message-wang-editor .ql-toolbar{
+.message-wang-editor .ql-toolbar {
   display: none;
 }
-.message-wang-editor .ql-container{
+.message-wang-editor .ql-container {
   border: 1px solid #ccc !important;
   height: 100%;
   border-radius: 10px;
 }
-.message-wang-editor div{
+.message-wang-editor div {
   height: 100%;
+}
+.el-pagination.is-background .btn-next,
+.el-pagination.is-background .btn-prev,
+.el-pagination.is-background .el-pager li {
+  background: none;
+  color: #000;
+  border-radius: 50%;
+  text-align: center;
+}
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  background: #3370ff;
+  color: #fff;
+  border-radius: 50%;
+  padding: 0;
+}
+.cums-tab-list-content .el-pagination__editor .el-input__inner{
+  border: none !important;
+}
+.item {
+  font-weight: 600;
+  color: #aaa;
+  position: relative;
+  top: 1px;
+  cursor: pointer;
 }
 </style>

@@ -7,7 +7,7 @@
             <list></list>
         </div>
         <div class="parents-message">
-            <messages></messages>
+            <component :is="toShowTab"></component>
         </div>
     </div>
 </template>
@@ -16,6 +16,10 @@
 import left from "./Left";
 import list from "./List";
 import messages from "./Messages";
+import cumsPage from "./CumsPage";
+import historyTab from "./HistoryTab";
+import tagsPage from "./TagsPage";
+import setPage from "./SetPage";
 import right from "./Right";
 
 export default {
@@ -24,7 +28,27 @@ export default {
         left,
         list,
         messages,
-        right
+        right,
+        cumsPage,
+        historyTab,
+        tagsPage,
+        setPage
+    },
+    data(){
+        return {
+            toShowTab:"messages"
+        }
+    },
+    watch:{
+        "$store.state.navs"(val){
+            switch(val){
+                case 1:this.toShowTab = "messages";break;
+                case 2:this.toShowTab = "cumsPage";break;
+                case 3:this.toShowTab = "historyTab";break;
+                case 4:this.toShowTab = "tagsPage";break;
+                case 5:this.toShowTab = "setPage";break;
+            }
+        }
     }
 };
 </script>
