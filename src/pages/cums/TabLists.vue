@@ -36,7 +36,7 @@
         </el-table-column>
         <el-table-column align="center" label="操作">
           <template slot-scope="scope">
-            <i class="el-icon-my-edit" @click="handleEdit(scope.row)"></i>
+            <i class="el-icon-my-edit" @click="handleEdit(scope.row)"></i>            
           </template>
         </el-table-column>
       </el-table>
@@ -119,56 +119,6 @@ export default {
           updataData: "2020-8-24",
           avert: "w"
         },
-        {
-          createdDate: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
-          mail: "123.com",
-          phone: "11012011910",
-          tags: "温和儒雅",
-          updataData: "2020-8-24",
-          avert: "w"
-        },
-        {
-          createdDate: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
-          mail: "123.com",
-          phone: "11012011910",
-          tags: "温和儒雅",
-          updataData: "2020-8-24",
-          avert: "w"
-        },
-        {
-          createdDate: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
-          mail: "123.com",
-          phone: "11012011910",
-          tags: "温和儒雅",
-          updataData: "2020-8-24",
-          avert: "w"
-        },
-        {
-          createdDate: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
-          mail: "123.com",
-          phone: "11012011910",
-          tags: "温和儒雅",
-          updataData: "2020-8-24",
-          avert: "w"
-        },
-        {
-          createdDate: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
-          mail: "123.com",
-          phone: "11012011910",
-          tags: "温和儒雅",
-          updataData: "2020-8-24",
-          avert: "w"
-        }
       ],
       search: ""
     };
@@ -190,6 +140,11 @@ export default {
 </script>
 
 <style scoped>
+.cums-tab-list{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 .cums-tab-list-top-box {
   display: flex;
   padding: 17px 0 17px 21px;

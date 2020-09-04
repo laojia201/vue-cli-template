@@ -11,7 +11,8 @@ const store = new Vuex.Store({
         navs: 1,
         cumsShowContent: "tabLists",
         cumsEditorData: {},
-
+        quesDetail:{},
+        editiorPwd:false
     },
     mutations: {
         setrightNavFlag(state, payload) {
@@ -28,9 +29,11 @@ const store = new Vuex.Store({
         settalkTitle(state, payload) {
             state.talkTitle = payload.talkTitle;
         },
+        
         setNavs(state, payload) {
             state.navs = payload;
         },
+        // 暂存切换状态
         setcumsShowContent(state,payload) {
             if (state.cumsShowContent == "tabLists") {
                 state.cumsShowContent = "editor";
@@ -38,6 +41,14 @@ const store = new Vuex.Store({
             } else {
                 state.cumsShowContent = "tabLists"
             }
+        },
+        // 暂存某客户问题详情
+        setQuesDetail(state, payload) {
+            state.quesDetail = payload;
+        },
+        // 修改密码弹框控制
+        SetEditiorPwd(state, payload){
+            state.editiorPwd = !state.editiorPwd;
         }
     },
     active: {},

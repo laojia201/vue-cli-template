@@ -17,7 +17,9 @@ import left from "./Left";
 import list from "./List";
 import messages from "./Messages";
 import cumsPage from "./CumsPage";
-import historyTab from "./HistoryTab";
+import historyTab from "./historys/HistoryTab";
+import viewQues from "./historys/ViewQues";
+import editorQues from "./historys/EditorQues";
 import tagsPage from "./TagsPage";
 import setPage from "./SetPage";
 import right from "./Right";
@@ -32,7 +34,9 @@ export default {
         cumsPage,
         historyTab,
         tagsPage,
-        setPage
+        setPage,
+        viewQues,
+        editorQues
     },
     data(){
         return {
@@ -47,6 +51,8 @@ export default {
                 case 3:this.toShowTab = "historyTab";break;
                 case 4:this.toShowTab = "tagsPage";break;
                 case 5:this.toShowTab = "setPage";break;
+                case 6:this.toShowTab = "viewQues";break;
+                case 7:this.toShowTab = "editorQues";break;
             }
         }
     }

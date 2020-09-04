@@ -136,4 +136,13 @@ li {
   top: 1px;
   cursor: pointer;
 }
+.history-tab-content .el-table{
+  overflow: visible;
+}
+.history-tab-content .el-table__body-wrapper{
+  overflow: visible;
+}
+.tags-tab .el-dialog{
+  margin-top:35vh !important;
+}
 </style>
