@@ -83,21 +83,21 @@ const router = new VueRouter({
     ]
 });
 
-// router.beforeEach((to, from, next) => {
-//     if (to.meta.isLogin) {
-//         console.log(111,getToken())
-//         if (to.name !== 'Login' && getToken() == null) {
-//             console.log(222)
-//             router.push({
-//                 name: 'Login'
-//             })
-//         } else {
-//             next()
-//         }
-//     } else {
-//         next()
-//     }
-// });
+router.beforeEach((to, from, next) => {
+    if (to.meta.isLogin) {
+        console.log(111,getToken())
+        if (to.name !== 'Login' && getToken() == null) {
+            console.log(222)
+            router.push({
+                name: 'Login'
+            })
+        } else {
+            next()
+        }
+    } else {
+        next()
+    }
+});
 
 
 
